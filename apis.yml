@@ -1,8 +1,30 @@
 aid: trilobio
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/trilobio.png
 name: Trilobio
-description: 'Trilobio is a company surfaced as a portfolio company of initialized-capital and added to
-  the API Evangelist network as a stub for enrichment. Sector: frontier-tech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Trilobio builds whole-lab automation for genetic engineering, synthetic
+  biology, and life-science research — affordable robotics "built by biologists,
+  for biologists." The platform pairs the Trilobot (a self-calibrating,
+  tool-changing lab robot with 16 deck slots), interchangeable gripper/pipette
+  tools, and Trilobio OS (no-code, GUI-driven protocol design with automatic
+  sample layout, error checking, an automated lab notebook, and LIMS). For
+  developers, Trilobio exposes T-code — the command language of Trilobots —
+  through the open-source Python `tcode-api` package, which drives a Trilobot
+  fleet via a local T-code Servicer and integrates third-party lab devices.
+  Founded in 2021 in San Francisco by Roya Amini-Naieni and Maximilian Schommer;
+  backed by Initialized Capital, Argon Ventures, and Lowercarbon Capital.
 url: https://raw.githubusercontent.com/api-evangelist/trilobio/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +34,54 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Frontier Tech
-apis: []
+- Lab Automation
+- Biotech
+- Life Sciences
+- Robotics
+- Synthetic Biology
+- Developer API
+- Python SDK
+apis:
+- name: TCode API (tcode-api)
+  description: >-
+    Python interfaces for the core T-code components that drive a Trilobot fleet
+    — Commands, Labware, Locations, Scripts — plus the T-code Servicer client for
+    runtime control and the Integrator client for third-party device
+    integration. Local control API (runs on the fleet control computer); no
+    network credentials.
+  humanURL: http://tcode.trilo.bio/
+  baseURL: http://tcode.trilo.bio/
+  tags:
+  - Lab Automation
+  - Python SDK
+  - Robotics
+  properties:
+  - type: Documentation
+    url: http://tcode.trilo.bio/
+  - type: SDKs
+    url: packages/trilobio-packages.yml
+  - type: Packages
+    url: packages/trilobio-packages.yml
+  - type: SourceCode
+    url: https://github.com/trilobio/tcode-api
+  - type: ChangeLog
+    url: changelog/trilobio-changelog.yml
+  - type: Authentication
+    url: authentication/trilobio-authentication.yml
+  - type: Conventions
+    url: conventions/trilobio-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/trilobio-lifecycle.yml
+  - type: DataModel
+    url: data-model/trilobio-data-model.yml
+  - type: LLMsTxt
+    url: llms/trilobio-llms.txt
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +90,32 @@ maintainers:
 common:
 - type: Website
   url: https://www.trilo.bio/
+- type: DeveloperPortal
+  url: http://tcode.trilo.bio/
+- type: Documentation
+  url: http://tcode.trilo.bio/
+- type: GettingStarted
+  url: http://tcode.trilo.bio/getting_started/index.html
+- type: APIReference
+  url: http://tcode.trilo.bio/api/index.html
+- type: GitHubOrganization
+  url: https://github.com/trilobio
+- type: Blog
+  url: https://www.trilo.bio/blog
+- type: SignUp
+  url: https://www.trilo.bio/book-a-demo
+- type: PrivacyPolicy
+  url: https://www.trilo.bio/privacy
+- type: TermsOfService
+  url: https://www.trilo.bio/terms
+- type: LLMsTxt
+  url: llms/trilobio-llms.txt
+- type: DomainSecurity
+  url: security/trilobio-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1

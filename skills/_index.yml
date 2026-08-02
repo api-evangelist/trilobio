@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+api: tcode-api
+skills:
+- name: trilobio-AGENTS.md
+  title: Agent instructions (schema migrations)
+  file: skills/trilobio-AGENTS.md
+  method: searched
+  source: https://github.com/trilobio/tcode-api/blob/main/AGENTS.md
+  description: Provider-published AGENTS.md — how to evolve versioned wire schemas in
+    tcode-api (immutable vN files, vN+1 + migrator + compat.py, test + lint gates).
+- name: trilobio-connect-fleet
+  title: Connect to a Trilobio fleet
+  file: skills/trilobio-connect-fleet.md
+  method: generated
+  source: http://tcode.trilo.bio/ (Connecting to a Trilobio Fleet; Entities)
+  description: Connect via TCodeServicerClient, check get_status, target a robot by
+    serial number, and place labware with CREATE_LABWARE.

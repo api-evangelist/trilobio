@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://raw.githubusercontent.com/trilobio/tcode-api/main/CHANGELOG.md
+api: tcode-api
+scheme: semver
+format: keep-a-changelog
+current_version: 1.41.0
+changelog_url: https://github.com/trilobio/tcode-api/blob/main/CHANGELOG.md
+notes: >-
+  Recent window only. tcode-api documents all notable changes in a
+  Keep-a-Changelog-style CHANGELOG.md and versions releases with Semantic
+  Versioning. Wire-format schema changes are additionally tracked in
+  src/tcode_api/api/compat.py (see AGENTS.md schema-migration policy).
+entries:
+- version: '1.41.0'
+  breaking: false
+  additions:
+  - Added `tcode_api.cli.robot_serial_number_annotation` (plac canned annotation for
+    targeting a specific robot), in preparation for single-robot targeting within fleets.
+  - Integrated robot targeting by serial number into all tcode_api scripts.
+  - Updated demo plate walkthrough to include pipette volume parametrically.
+- version: '1.40.1'
+  breaking: false
+  fixes:
+  - Fixed `TCodeServicerClient` requests call to the tcode servicer `serial_number_lookup`
+    endpoint.
+- version: '1.40.0'
+  breaking: false
+  additions:
+  - Added `TCodeServicerClient.serial_number_lookup` method.
+  - Added `SerialNumberLookupRequest`, `SerialNumberLookupResponse`, and
+    `SerialNumberLookupResult` models for the serial-number lookup API (fetch serial
+    numbers of entities resolved to ids by the tcode service).

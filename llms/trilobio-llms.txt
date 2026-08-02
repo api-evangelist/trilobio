@@ -1,0 +1,26 @@
+# Trilobio
+
+> Full lab automation you can afford. Powerful, reliable robotics for biologists built by biologists.
+
+Trilobio develops whole lab automation solutions for genetic engineering, synthetic biology, and life science research. Founded in 2021 by Roya Amini-Naieni (CEO) and Maximilian Schommer, both Forbes 30 Under 30 honorees. Based in San Francisco, the company has raised over $11M from investors including Initialized Capital, Argon Ventures, and Lowercarbon Capital. The platform addresses the reproducibility crisis in biology research—an estimated 77% of biologists cannot reproduce their own or others' research.
+
+## Platform
+
+- [Trilobot](https://www.trilo.bio/platform/robot): The foundational lab robot with 16 deck slots (stackable up to 4 plates each), houses up to 8 interchangeable tools, auto-calibrates itself and plasticware, and connects with other Trilobots or third-party machines. Operational within 30 minutes of unboxing.
+- [Tools](https://www.trilo.bio/platform/tools): Industry-first tool changing capability. Includes gripper for labware movement, pipette tools for liquid handling, and tube cap/de-capper. Tools are simply placed on the rack with no manual integration or calibration required.
+- [Trilobio OS](https://www.trilo.bio/platform/software): No-code, GUI-driven protocol design software. Build protocols with biology-level steps (transfer, dilute, serial dilute, aliquot), automatic sample layout, built-in error checking, automated lab notebook, and LIMS. Optimize protocols for speed, cost, or accuracy.
+- [Ecosystem](https://www.trilo.bio/platform/ecosystem): Open hardware and software architecture for developers and partners. Interface with third-party lab equipment. Protocols are reproducible on any Trilobio fleet configuration without recalibration.
+
+## Use Cases
+
+- [Customers](https://www.trilo.bio/customers): Case studies from Leconte Group (genetic engineering), Abalone Bio (AI-enabled antibody discovery), and Triton Bio (bioprospecting/microbiology)
+- [Self-Driving Labs](https://www.trilo.bio/self-driving-labs): Autonomous laboratory solutions
+
+## Resources
+
+- [Blog](https://www.trilo.bio/blog): Company news and research insights
+- [Company](https://www.trilo.bio/about): About Trilobio and the founding team
+
+## Contact
+
+- [Book a Demo](https://www.trilo.bio/book-a-demo): Schedule a demonstration of the Trilobio platform

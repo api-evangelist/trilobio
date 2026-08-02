@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: github.com/trilobio org repositories + tcode.trilo.bio docs + pyproject.toml
+notes: >-
+  First-party client libraries for the Trilobio T-code platform. Published as
+  MIT-licensed source on the trilobio GitHub org, not to a public package
+  registry (searched PyPI, npm, crates.io, RubyGems, Packagist, Maven, NuGet,
+  pkg.go.dev — no first-party listing; the PyPI names `tcode`/`tcode-api` are
+  unrelated third-party packages). Trilobio fleet controllers ship with
+  tcode-api pre-installed; developers install manually via uv/git for local
+  scripting.
+packages:
+- name: tcode-api
+  ecosystem: python
+  official: true
+  registry: null
+  source: https://github.com/trilobio/tcode-api
+  docs: http://tcode.trilo.bio/
+  license: MIT
+  language: Python
+  requires: '>=3.11'
+  latest_version: 1.41.0
+  install: uv add "git+https://github.com/trilobio/tcode-api"
+  description: >-
+    Python implementation of Trilobio's TCode API — Python interfaces for the
+    core T-code components (Commands, Labware, Locations, Scripts) plus the
+    T-code Servicer client and Integrator client for runtime control of a
+    Trilobot fleet.
+- name: py-organelles
+  ecosystem: python
+  official: true
+  registry: null
+  source: https://github.com/trilobio/py-organelles
+  license: MIT
+  language: Python
+  description: Small shared Python utilities used across all Trilobio Python projects.

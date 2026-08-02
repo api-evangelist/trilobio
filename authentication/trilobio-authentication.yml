@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: 'http://tcode.trilo.bio/ (Tutorial: Connecting to a Trilobio Fleet) + README'
+api: tcode-api
+summary: >-
+  The tcode-api is a local, on-premises control API rather than an
+  internet-facing REST service. Scripts run on the fleet control computer and
+  talk to the T-code Servicer over the loopback interface. The
+  `TCodeServicerClient()` constructor is called with no arguments and, by
+  default, connects to the T-code Servicer running on the local machine — there
+  are no API keys, OAuth flows, or bearer tokens documented for the client.
+schemes:
+- type: none
+  scope: local-loopback
+  evidence: >-
+    "Note that the TCodeServicerClient constructor is called with no arguments.
+    By default, it connects to the T-code Servicer running on the local
+    [machine]." Trust boundary is physical/network access to the fleet control
+    computer, not credential-based.
+network_auth: none
+notes: >-
+  No OAuth2/OpenID Connect/apiKey/mutualTLS security schemes are declared or
+  documented. Access control is effected by controlling access to the fleet
+  control computer on which the T-code Servicer runs.

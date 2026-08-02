@@ -1,0 +1,70 @@
+generated: '2026-07-21'
+method: derived
+source: 'http://tcode.trilo.bio/ (API Reference + Concepts: Entities, Entity Resolution)'
+api: tcode-api
+summary: >-
+  Entity-relationship model derived from the tcode-api API Reference and the
+  Entities concept docs. Entities are the core objects referenced in T-code
+  commands (tools, robots, labware and more) and are acted on through Creation,
+  Deletion, and Resolution. Derived from documentation structure, not from a
+  published OpenAPI/JSON Schema.
+entities:
+- name: Robot
+  description: A Trilobot in the fleet. Created when the fleet controller starts up;
+    targetable by serial number.
+- name: Tool
+  description: An interchangeable tool held by a robot (gripper, pipette, cap/de-capper).
+    Created at fleet-controller startup.
+- name: Labware
+  description: Plasticware/consumables placed on a robot deck. Created via CREATE_LABWARE,
+    removed via DELETE_LABWARE.
+- name: LabwareHolder
+  description: A deck slot / holder that a piece of labware occupies on a robot.
+- name: Location
+  description: A referenceable position (e.g. deck slot, well) used as a target for
+    movement and liquid-handling commands.
+- name: PipetteTipLayout
+  description: Layout of pipette tips in a tip rack; tips are implicitly created when
+    CREATE_LABWARE is called with a PipetteTipRack description and full=True.
+- name: Command
+  description: A single T-code instruction (e.g. CREATE_LABWARE, DELETE_LABWARE,
+    MOVE_TO_LOCATION). Versioned wire schema.
+- name: Script
+  description: An ordered program of T-code commands executed against a fleet.
+relationships:
+- from: Robot
+  type: has_many
+  to: Tool
+  via: tools held on the tool rack
+- from: Robot
+  type: has_many
+  to: LabwareHolder
+  via: deck slots
+- from: LabwareHolder
+  type: has_one
+  to: Labware
+  via: occupies
+- from: Labware
+  type: belongs_to
+  to: Robot
+  via: created on a robot deck (CREATE_LABWARE)
+- from: Labware
+  type: has_one
+  to: PipetteTipLayout
+  via: pipette tip rack layout (when labware is a PipetteTipRack)
+- from: Command
+  type: belongs_to
+  to: Script
+  via: script step
+- from: Command
+  type: references
+  to: Location
+  via: target location
+- from: Command
+  type: references
+  to: Robot
+  via: robot_id / serial-number targeting
+notes: >-
+  Entity ids are resolved at runtime by the T-code Servicer
+  (serial_number_lookup / entity resolution). No public id-prefix scheme was
+  documented.

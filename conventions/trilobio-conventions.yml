@@ -1,0 +1,68 @@
+generated: '2026-07-21'
+method: searched
+source: http://tcode.trilo.bio/ (API Reference, Concepts) + github.com/trilobio/tcode-api
+api: tcode-api
+summary: >-
+  Cross-cutting semantics of the T-code control API as exposed by the Python
+  tcode-api package. T-code is a command language for driving Trilobot fleets;
+  the package models it as versioned Pydantic schemas and runtime clients.
+surfaces:
+- name: T-code API
+  module: tcode_api.api
+  alias: tc
+  purpose: Core data structures — Commands, Common Types, Descriptions, Labware,
+    Labware Holders, Locations, Pipette Tip Layout, Script.
+- name: T-code Servicer API
+  module: tcode_api.servicer
+  purpose: Runtime control of a fleet via TCodeServicerClient (get_status,
+    serial_number_lookup, jog commands). Connects to the local T-code Servicer.
+- name: T-code Integrator API
+  module: tcode_api.integrator
+  purpose: One-directional integration with external (third-party) lab devices.
+auth:
+  style: local-servicer
+  detail: TCodeServicerClient() takes no arguments and connects to the T-code
+    Servicer on the local fleet control computer; no API keys/tokens. See
+    authentication/trilobio-authentication.yml.
+entity_resolution:
+  summary: >-
+    Entities (tools, robots, labware) are the core objects referenced in T-code
+    commands and have up to three actions — Creation, Deletion, Resolution.
+    CREATE_* commands manipulate robot state (e.g. CREATE_LABWARE); commands
+    reference entities that the servicer resolves to concrete ids at runtime.
+  details_url: http://tcode.trilo.bio/concepts/entity_resolution.html
+robot_targeting:
+  summary: >-
+    Commands may target a specific robot within a fleet by serial number
+    (serial_number_lookup resolves entities/robots to ids). See changelog 1.40.0
+    and 1.41.0.
+error_envelope:
+  shape: Result(success, code, message, details)
+  example: >-
+    GetStatusResponse(..., result=Result(success=True, code='success',
+    message=None, details=None))
+  notes: >-
+    Responses wrap a Result object carrying a boolean success, a string code, an
+    optional human message, and optional details. Not RFC 9457 (this is a local
+    Python/socket protocol, not HTTP problem+json).
+versioning:
+  scheme: semver
+  wire_schemas: versioned-immutable (see lifecycle/trilobio-lifecycle.yml and
+    skills/trilobio-AGENTS.md)
+idempotency:
+  documented: false
+  notes: No idempotency-key mechanism is documented for the control API.
+pagination:
+  documented: false
+rate_limiting:
+  documented: false
+transport:
+  detail: >-
+    The client uses HTTP requests plus a Socket.IO channel (python-socketio) to
+    the T-code Servicer (a FastAPI/uvicorn service) running on the fleet control
+    computer.
+cross_links:
+  authentication: authentication/trilobio-authentication.yml
+  lifecycle: lifecycle/trilobio-lifecycle.yml
+  changelog: changelog/trilobio-changelog.yml
+  data_model: data-model/trilobio-data-model.yml

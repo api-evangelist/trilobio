@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: pyproject.toml + CHANGELOG.md + AGENTS.md (github.com/trilobio/tcode-api) + tcode.trilo.bio
+api: tcode-api
+versioning:
+  scheme: semver
+  current_version: 1.41.0
+  policy_url: https://github.com/trilobio/tcode-api/blob/main/CHANGELOG.md
+  notes: >-
+    Releases follow Semantic Versioning and are tracked in a Keep-a-Changelog
+    CHANGELOG.md. The docs site is versioned per release (e.g. tcode-api 1.37.1
+    documentation).
+wire_compatibility:
+  policy: versioned-immutable-schemas
+  source: https://github.com/trilobio/tcode-api/blob/main/AGENTS.md
+  summary: >-
+    Every message schema under src/tcode_api/schemas/ is versioned (vN). Once a
+    vN schema appears in a tagged release it is part of the wire format and is
+    immutable; breaking shape changes require a new vN+1 schema plus a migrator
+    and a compat.py entry keyed by tcode-api version. This preserves the ability
+    to deserialize older stored scripts/payloads.
+  migration: >-
+    migrate_data_to_latest applies registered migrators; required new fields
+    without a sensible default must raise rather than fabricate a value.
+deprecation:
+  policy_documented: false
+  http_sunset_headers: false
+  notes: >-
+    No RFC 8594 Sunset/Deprecation header policy applies — the client is a local
+    Python library, not an HTTP API surface. No formal deprecation schedule was
+    found; backward compatibility is handled through the versioned-schema +
+    migrator mechanism above.
+status_page:
+  found: false
+  notes: No public status/uptime page was found for the tcode-api or trilo.bio.
+sla:
+  found: false
