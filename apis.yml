@@ -88,6 +88,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: License
+  name: MIT
+  url: https://github.com/trilobio/tcode-api/blob/main/LICENSE
 - type: Website
   url: https://www.trilo.bio/
 - type: DeveloperPortal
